@@ -74,14 +74,13 @@ final class SelfieStoreTests: XCTestCase {
         try SelfieStore.shared.save(selfie: newSelfie)
         let id = newSelfie.id
         
-        let allSelfies = try! SelfieStore.shared.listSelfies()
+        let allSelfies = try SelfieStore.shared.listSelfies()
         try SelfieStore.shared.delete(id: id)
         let selfieList = try SelfieStore.shared.listSelfies()
         let loadedSelfie = SelfieStore.shared.load(id:id)
         
         XCTAssertEqual(allSelfies.count - 1, selfieList.count, "There should be one less selfie after deletion")
-        XCTAssertNotNil(loadedSelfie, "deleted selfie should be nil")
-       
+        XCTAssertNil(loadedSelfie, "deleted selfie should be nil")
     }
 
 }
