@@ -7,11 +7,11 @@
 
 import Foundation
 import UIKit.UIImage
+import CoreLocation.CLLocation
 
 class Selfie: Codable {
     //When it was created
     let created: Date
-    
     // A unique ID, used to link this selfie to its image on disk
     let id: UUID
     // The name of the selfie
@@ -24,6 +24,27 @@ class Selfie: Codable {
             try? SelfieStore.shared.setImage(id: self.id, image: newValue)
         }
     }
+    var position: Coordinate?
+    
+    struct Coordinate : Codable, Equatable {
+        var latitude : Double
+        var longitude : Double
+        var location : CLLocation {
+            get {
+                return CLLocation(latitude: self.latitude, longitude: self.longitude)
+            }
+            set {
+                self.latitude = newValue.coordinate.latitude
+                self.longitude = newValue.coordinate.longitude
+            }
+        }
+        
+        init(location : CLLocation) {
+            self.latitude = location.coordinate.latitude
+            self.longitude = location.coordinate.longitude
+        }
+    }
+
     
     init(title: String) {
         self.title = title

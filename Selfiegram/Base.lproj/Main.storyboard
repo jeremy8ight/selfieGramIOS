@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,76 +77,88 @@
         <scene sceneID="LgT-6w-xAN">
             <objects>
                 <viewController id="v1B-h7-u0R" customClass="SelfieDetailViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QWP-a8-lgx">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="QWP-a8-lgx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selfie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HES-vz-n3b">
-                                <rect key="frame" x="16" y="178" width="361" height="30"/>
+                                <rect key="frame" x="16" y="178" width="203" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="K7d-1n-Vi1"/>
                                     <constraint firstAttribute="height" constant="30" id="nRm-Ur-zuB"/>
                                 </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZm-xs-afy">
-                                <rect key="frame" x="16" y="224" width="361" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="M7J-P7-ifD"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="224" width="203" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="73l-FS-qw0">
-                                <rect key="frame" x="16" y="282" width="361" height="486"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73l-FS-qw0">
+                                <rect key="frame" x="16" y="368" width="361" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="695-TA-tA3"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-JJ-iMK">
-                                <rect key="frame" x="0.0" y="50" width="393" height="44"/>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-JJ-iMK">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="178"/>
                                 <items>
                                     <navigationItem title="Detail" id="Ues-xy-r5F"/>
                                 </items>
                             </navigationBar>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-V5-Vfr">
+                                <rect key="frame" x="227" y="194" width="150" height="150"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="KEL-64-qMV"/>
+                                    <constraint firstAttribute="height" constant="150" id="VCd-ci-05M"/>
+                                </constraints>
+                                <standardMapConfiguration key="preferredConfiguration" emphasisStyle="muted"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CUZ-Lb-5hl" appends="YES" id="pri-SJ-Te6"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EjW-Th-9XJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="73l-FS-qw0" firstAttribute="leading" secondItem="QWP-a8-lgx" secondAttribute="leadingMargin" constant="16" id="0sB-Q2-6NQ"/>
                             <constraint firstItem="tZm-xs-afy" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="14m-Cb-o7H"/>
-                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="1CP-ik-eFH"/>
-                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="9d0-xk-hy2"/>
-                            <constraint firstItem="HES-vz-n3b" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="BEj-7z-4hz"/>
-                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="HES-vz-n3b" secondAttribute="trailing" constant="16" id="EX0-yD-Peq"/>
-                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="HES-vz-n3b" secondAttribute="trailing" constant="16" id="GE9-Nl-R4n"/>
+                            <constraint firstItem="XLL-V5-Vfr" firstAttribute="top" secondItem="pZJ-JJ-iMK" secondAttribute="bottom" constant="16" id="2tf-dT-8MS"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="XLL-V5-Vfr" secondAttribute="bottom" constant="8" id="D69-Lh-xRs"/>
                             <constraint firstAttribute="bottomMargin" secondItem="73l-FS-qw0" secondAttribute="bottom" constant="16" id="HIR-2M-FYR"/>
-                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="50" id="IE8-Tg-EQk"/>
                             <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="pZJ-JJ-iMK" secondAttribute="bottom" id="IcF-Z2-pR8"/>
-                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="O4C-Zq-lWX"/>
                             <constraint firstItem="73l-FS-qw0" firstAttribute="trailing" secondItem="QWP-a8-lgx" secondAttribute="trailingMargin" constant="16" id="Taf-29-kDi"/>
-                            <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="EjW-Th-9XJ" secondAttribute="top" constant="16" id="XP0-of-eGl"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="XLL-V5-Vfr" secondAttribute="bottom" constant="8" id="UxW-H0-J59"/>
+                            <constraint firstItem="XLL-V5-Vfr" firstAttribute="leading" secondItem="tZm-xs-afy" secondAttribute="trailing" constant="8" id="VtL-4b-d5V"/>
                             <constraint firstItem="pZJ-JJ-iMK" firstAttribute="top" secondItem="QWP-a8-lgx" secondAttribute="top" id="YjA-au-g8D"/>
                             <constraint firstItem="EjW-Th-9XJ" firstAttribute="bottom" secondItem="73l-FS-qw0" secondAttribute="bottom" constant="16" id="cBq-0I-fqK"/>
+                            <constraint firstItem="XLL-V5-Vfr" firstAttribute="leading" secondItem="HES-vz-n3b" secondAttribute="trailing" constant="8" id="d47-Fz-N1t"/>
                             <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="EjW-Th-9XJ" secondAttribute="top" constant="16" id="dbe-TP-okQ"/>
                             <constraint firstItem="73l-FS-qw0" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="mcp-Eb-ZpY"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="XLL-V5-Vfr" secondAttribute="trailing" constant="16" id="n6e-9B-evB"/>
                             <constraint firstItem="tZm-xs-afy" firstAttribute="top" secondItem="HES-vz-n3b" secondAttribute="bottom" constant="16" id="nps-mF-iKS"/>
-                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="30" id="vb0-rt-Xzh"/>
+                            <constraint firstItem="HES-vz-n3b" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="w2m-Te-2e7"/>
                             <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="73l-FS-qw0" secondAttribute="trailing" constant="16" id="xyu-dq-Bn6"/>
-                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="tZm-xs-afy" secondAttribute="trailing" constant="16" id="zfM-hL-c0s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkF-Ak-oYw"/>
                     <connections>
                         <outlet property="dateCreatedLabel" destination="tZm-xs-afy" id="OFV-hs-HW6"/>
+                        <outlet property="mapView" destination="XLL-V5-Vfr" id="J7e-7n-DFi"/>
                         <outlet property="selfieImageView" destination="73l-FS-qw0" id="loa-Dc-LF9"/>
                         <outlet property="selfieNameField" destination="HES-vz-n3b" id="Ekz-Q6-bkQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewi-U9-r9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CUZ-Lb-5hl">
+                    <connections>
+                        <action selector="expandMap:" destination="v1B-h7-u0R" id="95p-3r-XFo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1448.0916030534352" y="374.64788732394368"/>
         </scene>

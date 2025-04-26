@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class SelfieListViewController: UITableViewController {
     
     // The list of photo objects we're going to deploy
     var selfies: [Selfie] = []
+    var lastLocation : CLLocation?
+    let locationManager = CLLocationManager()
 
     let timeIntervalFormatter : DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -39,6 +42,10 @@ class SelfieListViewController: UITableViewController {
         
         //Store the image
         newSelfie.image = image
+        
+        if let location = self.lastLocation {
+            newSelfie.position = Selfie.Coordinate(location: location)
+        }
         
         //Attempt to save the photo
         do {
@@ -71,7 +78,17 @@ class SelfieListViewController: UITableViewController {
         } catch let error {
             showError(message: "Failed to load selfies: \(error.localizedDescription)")
         }
+        
+        self.locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Reload all data in the table view
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,6 +107,28 @@ class SelfieListViewController: UITableViewController {
     }
     
     @objc func createNewSelfie() {
+        // Clear the last location, so that this next image doesn't
+        // end up with an out-of-date location
+        lastLocation = nil
+        
+        // Handle our authorization status
+        switch locationManager.authorizationStatus {
+        case .denied, .restricted:
+            // We either don't have permission, or the user is
+            // not permittedto use location services at all
+            // Give up at this point
+            return
+        case .notDetermined:
+            // We don't know if we have permission or not. Ask for it.
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            // We have permission; nothing to do here
+            break
+        }
+        // Request a one-time location update
+        locationManager.requestLocation()
+        
+    
         //Create a new image picker
         let imagePicker = UIImagePickerController()
         
@@ -192,5 +231,17 @@ extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigatio
             self.newSelfieTaken(image: image)
             
             self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SelfieListViewController : CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("updating my location from the manager")
+        self.lastLocation = locations.last
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        showError(message: error.localizedDescription)
     }
 }
