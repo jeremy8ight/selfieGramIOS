@@ -77,14 +77,11 @@ class SelfieListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showDetail" {
-            print("this is being called")
             if let indexPath = tableView.indexPathForSelectedRow {
                 
                 let selfie = selfies[indexPath.row]
-                print("selfie is \(selfie.id)")
                 
                 if let controller = segue.destination as? SelfieDetailViewController {
-                    print("selfie is being passed into the next screen")
                     controller.selfie = selfie
                     
                 }

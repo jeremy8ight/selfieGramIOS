@@ -34,20 +34,15 @@ class SelfieDetailViewController: UIViewController {
     }
     
     func configureView() {
-        print(" i am in he configure view")
         guard let selfie = selfie else { return }
-        
-        print("selfie is \(selfie.id), \(selfie.title), \(selfie.created)")
+
         
         //Ensure that we have references to the controls we need
         guard let selfieNameField = selfieNameField,
               let selfieImageView = selfieImageView,
               let dateCreatedLabel = dateCreatedLabel else {
-            print("i am failing here")
             return
         }
-        
-        print("got pas he guard")
         
         selfieNameField.text = selfie.title
         dateCreatedLabel.text = dateFormatter.string(from: selfie.created)
