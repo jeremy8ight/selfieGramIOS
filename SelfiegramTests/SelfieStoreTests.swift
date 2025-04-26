@@ -47,7 +47,7 @@ final class SelfieStoreTests: XCTestCase {
     func testSavingImage() throws {
         let newSelfie = Selfie(title: "Selfie with image test")
         
-        newSelfie.image = createImage(text: "100")
+        newSelfie.image = createImage(text: "💯")
         try SelfieStore.shared.save(selfie: newSelfie)
         
         let loadedImage = SelfieStore.shared.getImage(id: newSelfie.id)
