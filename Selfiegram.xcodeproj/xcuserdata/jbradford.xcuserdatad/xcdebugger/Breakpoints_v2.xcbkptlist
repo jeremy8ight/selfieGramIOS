@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B3C19E19-D1B1-4C21-99B7-356570C9CCE0"
+            uuid = "7453080B-10A3-40DA-A2C1-0C8AD3B0FB61"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Selfiegram/SelfieListViewConroller.swift"
+            filePath = "Selfiegram/SelfieDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "configureView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

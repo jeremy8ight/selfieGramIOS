@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-class SelfieListViewConroller: UITableViewController {
+class SelfieListViewController: UITableViewController {
     
     // The list of photo objects we're going to deploy
     var selfies: [Selfie] = []
+
     let timeIntervalFormatter : DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .spellOut
@@ -71,6 +72,24 @@ class SelfieListViewConroller: UITableViewController {
             showError(message: "Failed to load selfies: \(error.localizedDescription)")
         }
     
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showDetail" {
+            print("this is being called")
+            if let indexPath = tableView.indexPathForSelectedRow {
+                
+                let selfie = selfies[indexPath.row]
+                print("selfie is \(selfie.id)")
+                
+                if let controller = segue.destination as? SelfieDetailViewController {
+                    print("selfie is being passed into the next screen")
+                    controller.selfie = selfie
+                    
+                }
+            }
+        }
     }
     
     @objc func createNewSelfie() {
@@ -154,7 +173,7 @@ class SelfieListViewConroller: UITableViewController {
     
 }
 
-extension SelfieListViewConroller: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SelfieListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //called when the user cancels selecting an image
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

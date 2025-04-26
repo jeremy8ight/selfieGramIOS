@@ -27,7 +27,7 @@
         <!--Selfies-->
         <scene sceneID="l3V-Pd-vJW">
             <objects>
-                <tableViewController id="tu8-2a-OTJ" customClass="SelfieListViewConroller" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tu8-2a-OTJ" customClass="SelfieListViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="JMh-y2-e7x">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="v1B-h7-u0R" kind="show" id="r0J-sn-q6t"/>
+                                    <segue destination="v1B-h7-u0R" kind="show" identifier="showDetail" id="r0J-sn-q6t"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,37 +72,82 @@
             </objects>
             <point key="canvasLocation" x="346" y="375"/>
         </scene>
-        <!--Detail View Conroller-->
+        <!--Selfie Detail View Controller-->
         <scene sceneID="LgT-6w-xAN">
             <objects>
-                <viewController id="v1B-h7-u0R" customClass="DetailViewConroller" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QWP-a8-lgx">
+                <viewController id="v1B-h7-u0R" customClass="SelfieDetailViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="QWP-a8-lgx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-JJ-iMK">
-                                <rect key="frame" x="0.0" y="53" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Selfie Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HES-vz-n3b">
+                                <rect key="frame" x="16" y="178" width="361" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="K7d-1n-Vi1"/>
+                                    <constraint firstAttribute="height" constant="30" id="nRm-Ur-zuB"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZm-xs-afy">
+                                <rect key="frame" x="16" y="224" width="361" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="M7J-P7-ifD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73l-FS-qw0">
+                                <rect key="frame" x="16" y="282" width="361" height="486"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="695-TA-tA3"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-JJ-iMK">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="178"/>
                                 <items>
                                     <navigationItem title="Detail" id="Ues-xy-r5F"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail view content goes here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phj-hP-ubO">
-                                <rect key="frame" x="50" y="359" width="292" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EjW-Th-9XJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="leading" secondItem="QWP-a8-lgx" secondAttribute="leadingMargin" constant="16" id="0sB-Q2-6NQ"/>
+                            <constraint firstItem="tZm-xs-afy" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="14m-Cb-o7H"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="1CP-ik-eFH"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="9d0-xk-hy2"/>
+                            <constraint firstItem="HES-vz-n3b" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="BEj-7z-4hz"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="HES-vz-n3b" secondAttribute="trailing" constant="16" id="EX0-yD-Peq"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="HES-vz-n3b" secondAttribute="trailing" constant="16" id="GE9-Nl-R4n"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="73l-FS-qw0" secondAttribute="bottom" constant="16" id="HIR-2M-FYR"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="50" id="IE8-Tg-EQk"/>
+                            <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="pZJ-JJ-iMK" secondAttribute="bottom" id="IcF-Z2-pR8"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="8" id="O4C-Zq-lWX"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="trailing" secondItem="QWP-a8-lgx" secondAttribute="trailingMargin" constant="16" id="Taf-29-kDi"/>
+                            <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="EjW-Th-9XJ" secondAttribute="top" constant="16" id="XP0-of-eGl"/>
+                            <constraint firstItem="pZJ-JJ-iMK" firstAttribute="top" secondItem="QWP-a8-lgx" secondAttribute="top" id="YjA-au-g8D"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="bottom" secondItem="73l-FS-qw0" secondAttribute="bottom" constant="16" id="cBq-0I-fqK"/>
+                            <constraint firstItem="HES-vz-n3b" firstAttribute="top" secondItem="EjW-Th-9XJ" secondAttribute="top" constant="16" id="dbe-TP-okQ"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="leading" secondItem="EjW-Th-9XJ" secondAttribute="leading" constant="16" id="mcp-Eb-ZpY"/>
+                            <constraint firstItem="tZm-xs-afy" firstAttribute="top" secondItem="HES-vz-n3b" secondAttribute="bottom" constant="16" id="nps-mF-iKS"/>
+                            <constraint firstItem="73l-FS-qw0" firstAttribute="top" secondItem="tZm-xs-afy" secondAttribute="bottom" constant="30" id="vb0-rt-Xzh"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="73l-FS-qw0" secondAttribute="trailing" constant="16" id="xyu-dq-Bn6"/>
+                            <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="tZm-xs-afy" secondAttribute="trailing" constant="16" id="zfM-hL-c0s"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vkF-Ak-oYw"/>
+                    <connections>
+                        <outlet property="dateCreatedLabel" destination="tZm-xs-afy" id="OFV-hs-HW6"/>
+                        <outlet property="selfieImageView" destination="73l-FS-qw0" id="loa-Dc-LF9"/>
+                        <outlet property="selfieNameField" destination="HES-vz-n3b" id="Ekz-Q6-bkQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewi-U9-r9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453" y="375"/>
+            <point key="canvasLocation" x="1448.0916030534352" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
