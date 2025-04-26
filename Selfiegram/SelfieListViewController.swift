@@ -92,7 +92,6 @@ class SelfieListViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 
@@ -111,22 +110,30 @@ class SelfieListViewController: UITableViewController {
         // end up with an out-of-date location
         lastLocation = nil
         
-        // Handle our authorization status
-        switch locationManager.authorizationStatus {
-        case .denied, .restricted:
-            // We either don't have permission, or the user is
-            // not permittedto use location services at all
-            // Give up at this point
-            return
-        case .notDetermined:
-            // We don't know if we have permission or not. Ask for it.
-            locationManager.requestWhenInUseAuthorization()
-        default:
-            // We have permission; nothing to do here
-            break
+        let shouldGetLocation = UserDefaults.standard.bool(forKey: SettingsKey.saveLocation.rawValue)
+        
+        if shouldGetLocation {
+            // Handle our authorization status
+            switch locationManager.authorizationStatus {
+            case .denied, .restricted:
+                // We either don't have permission, or the user is
+                // not permittedto use location services at all
+                // Give up at this point
+                return
+            case .notDetermined:
+                // We don't know if we have permission or not. Ask for it.
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                // We have permission; nothing to do here
+                break
+            }
+            
+            //Set us as the location manager delegate
+            locationManager.delegate = self
+            // Request a one-time location update
+            locationManager.requestLocation()
         }
-        // Request a one-time location update
-        locationManager.requestLocation()
+        
         
     
         //Create a new image picker

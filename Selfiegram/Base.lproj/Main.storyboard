@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-767" y="375"/>
         </scene>
-        <!--Selfies-->
+        <!--Seflies-->
         <scene sceneID="l3V-Pd-vJW">
             <objects>
                 <tableViewController id="tu8-2a-OTJ" customClass="SelfieListViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,13 +67,25 @@
                             <outlet property="delegate" destination="tu8-2a-OTJ" id="KGL-x1-hLh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Selfies" id="h1q-F3-yl1"/>
+                    <navigationItem key="navigationItem" title="Seflies" id="h1q-F3-yl1">
+                        <barButtonItem key="leftBarButtonItem" style="done" id="JVo-no-0T9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="A1o-JO-vyb">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Settings"/>
+                                <connections>
+                                    <segue destination="hA0-Kd-LPA" kind="show" id="s0k-fZ-VbY"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eC-ct-3nn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346" y="375"/>
         </scene>
-        <!--Selfie Detail View Controller-->
+        <!--Selfie-->
         <scene sceneID="LgT-6w-xAN">
             <objects>
                 <viewController id="v1B-h7-u0R" customClass="SelfieDetailViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73l-FS-qw0">
-                                <rect key="frame" x="16" y="368" width="361" height="400"/>
+                                <rect key="frame" x="16" y="352" width="361" height="416"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="695-TA-tA3"/>
                                 </constraints>
@@ -145,7 +157,7 @@
                             <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="73l-FS-qw0" secondAttribute="trailing" constant="16" id="xyu-dq-Bn6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vkF-Ak-oYw"/>
+                    <navigationItem key="navigationItem" title="Selfie" id="vkF-Ak-oYw"/>
                     <connections>
                         <outlet property="dateCreatedLabel" destination="tZm-xs-afy" id="OFV-hs-HW6"/>
                         <outlet property="mapView" destination="XLL-V5-Vfr" id="J7e-7n-DFi"/>
@@ -161,6 +173,93 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1448.0916030534352" y="374.64788732394368"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Q0P-sD-RuM">
+            <objects>
+                <tableViewController title="Settings" id="hA0-Kd-LPA" customClass="SettingsTableViewController" customModule="Selfiegram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="vJc-hb-Yvf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Guu-iU-0N3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XXa-H3-dDH">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XXa-H3-dDH" id="wnK-yt-luQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqD-Xc-6Pt">
+                                                    <rect key="frame" x="20" y="11.333333333333336" width="111" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-9q-qox">
+                                                    <rect key="frame" x="322" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="locationSwitchToggled:" destination="hA0-Kd-LPA" eventType="valueChanged" id="clu-12-xTW"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U7z-9q-qox" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oqD-Xc-6Pt" secondAttribute="trailing" constant="8" id="Vzl-XS-rZP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U7z-9q-qox" secondAttribute="trailing" constant="2" id="gab-iU-78a"/>
+                                                <constraint firstItem="oqD-Xc-6Pt" firstAttribute="centerY" secondItem="wnK-yt-luQ" secondAttribute="centerY" id="mTe-Jz-1IN"/>
+                                                <constraint firstItem="U7z-9q-qox" firstAttribute="centerY" secondItem="wnK-yt-luQ" secondAttribute="centerY" id="oMk-aI-72K"/>
+                                                <constraint firstItem="oqD-Xc-6Pt" firstAttribute="leading" secondItem="wnK-yt-luQ" secondAttribute="leadingMargin" id="w0Z-he-ity"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Pe-Cd-O2l">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Pe-Cd-O2l" id="rVy-qT-jFH">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me at 10am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ga-Dj-uqZ">
+                                                    <rect key="frame" x="20" y="11.333333333333336" width="150" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u8j-kz-Ux5">
+                                                    <rect key="frame" x="322" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="reminderSwitchToggled:" destination="hA0-Kd-LPA" eventType="valueChanged" id="4XY-od-sQM"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="u8j-kz-Ux5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ga-Dj-uqZ" secondAttribute="trailing" constant="8" id="L0E-L2-DS9"/>
+                                                <constraint firstItem="u8j-kz-Ux5" firstAttribute="centerY" secondItem="rVy-qT-jFH" secondAttribute="centerY" id="PgV-Xk-7xa"/>
+                                                <constraint firstItem="6ga-Dj-uqZ" firstAttribute="centerY" secondItem="rVy-qT-jFH" secondAttribute="centerY" id="XHc-Pv-edo"/>
+                                                <constraint firstItem="6ga-Dj-uqZ" firstAttribute="leading" secondItem="rVy-qT-jFH" secondAttribute="leadingMargin" id="h5i-ce-WjV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="u8j-kz-Ux5" secondAttribute="trailing" constant="2" id="vDK-C3-OyB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="hA0-Kd-LPA" id="Esp-ex-xCN"/>
+                            <outlet property="delegate" destination="hA0-Kd-LPA" id="cnL-Ad-Mrn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="whD-Cs-7KG"/>
+                    <connections>
+                        <outlet property="locationSwitch" destination="U7z-9q-qox" id="X6q-Ut-kzS"/>
+                        <outlet property="reminderSwitch" destination="u8j-kz-Ux5" id="fcU-EO-mcs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rsl-XU-YM5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="1160"/>
         </scene>
     </scenes>
     <resources>
