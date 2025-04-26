@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5F74568F2DBD95C500E0DE15 /* Lobster_1.3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F74568E2DBD95C500E0DE15 /* Lobster_1.3.otf */; };
+		5F7456922DBD95D900E0DE15 /* Quicksand-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F7456902DBD95D900E0DE15 /* Quicksand-Bold.otf */; };
+		5F7456932DBD95D900E0DE15 /* Quicksand-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F7456912DBD95D900E0DE15 /* Quicksand-Regular.otf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5F4458872DBB1A3F00C5B09A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,12 @@
 		5F4458702DBB1A3700C5B09A /* Selfiegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfiegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4458862DBB1A3F00C5B09A /* SelfiegramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4458902DBB1A4000C5B09A /* SelfiegramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiegramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F74568E2DBD95C500E0DE15 /* Lobster_1.3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster_1.3.otf; sourceTree = "<group>"; };
+		5F7456902DBD95D900E0DE15 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.otf"; sourceTree = "<group>"; };
+		5F7456912DBD95D900E0DE15 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.otf"; sourceTree = "<group>"; };
+		5F7456962DBD986A00E0DE15 /* Lobster_1.3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Lobster_1.3.otf; path = "Fonts group/Lobster_1.3.otf"; sourceTree = "<group>"; };
+		5F7456972DBD986A00E0DE15 /* Quicksand-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Bold.otf"; path = "Fonts group/Quicksand-Bold.otf"; sourceTree = "<group>"; };
+		5F7456982DBD986A00E0DE15 /* Quicksand-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Regular.otf"; path = "Fonts group/Quicksand-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +100,10 @@
 		5F4458672DBB1A3700C5B09A = {
 			isa = PBXGroup;
 			children = (
+				5F7456962DBD986A00E0DE15 /* Lobster_1.3.otf */,
+				5F7456972DBD986A00E0DE15 /* Quicksand-Bold.otf */,
+				5F7456982DBD986A00E0DE15 /* Quicksand-Regular.otf */,
+				5F74568D2DBD959200E0DE15 /* Fonts group */,
 				5F4458722DBB1A3700C5B09A /* Selfiegram */,
 				5F4458892DBB1A3F00C5B09A /* SelfiegramTests */,
 				5F4458932DBB1A4000C5B09A /* SelfiegramUITests */,
@@ -103,6 +119,16 @@
 				5F4458902DBB1A4000C5B09A /* SelfiegramUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5F74568D2DBD959200E0DE15 /* Fonts group */ = {
+			isa = PBXGroup;
+			children = (
+				5F74568E2DBD95C500E0DE15 /* Lobster_1.3.otf */,
+				5F7456902DBD95D900E0DE15 /* Quicksand-Bold.otf */,
+				5F7456912DBD95D900E0DE15 /* Quicksand-Regular.otf */,
+			);
+			path = "Fonts group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F74568F2DBD95C500E0DE15 /* Lobster_1.3.otf in Resources */,
+				5F7456922DBD95D900E0DE15 /* Quicksand-Bold.otf in Resources */,
+				5F7456932DBD95D900E0DE15 /* Quicksand-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
