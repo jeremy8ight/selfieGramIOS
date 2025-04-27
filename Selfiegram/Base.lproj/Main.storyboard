@@ -157,7 +157,13 @@
                             <constraint firstItem="EjW-Th-9XJ" firstAttribute="trailing" secondItem="73l-FS-qw0" secondAttribute="trailing" constant="16" id="xyu-dq-Bn6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Selfie" id="vkF-Ak-oYw"/>
+                    <navigationItem key="navigationItem" title="Selfie" id="vkF-Ak-oYw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="5H7-Hf-nxW">
+                            <connections>
+                                <action selector="sharedSelfie:" destination="v1B-h7-u0R" id="gjj-AZ-Vpy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateCreatedLabel" destination="tZm-xs-afy" id="OFV-hs-HW6"/>
                         <outlet property="mapView" destination="XLL-V5-Vfr" id="J7e-7n-DFi"/>

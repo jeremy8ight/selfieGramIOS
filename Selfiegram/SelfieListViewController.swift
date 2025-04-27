@@ -186,28 +186,42 @@ class SelfieListViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    
-        // If this was a deletion, we have deleting to do
-        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView,trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        
+        let share = UIContextualAction(style: .normal, title: "Share") { (contextualAction, view, boolValue) in
+            guard let image = self.selfies[indexPath.row].image else {
+                self.showError(message: "Unable to share selfie without an image")
+                return
+            }
             
-            //Get the object from the content array
-            let selfieToRemove = selfies[indexPath.row]
+            let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            self.present(activity,animated: true, completion: nil)
+        }
+        
+        share.backgroundColor = self.view.tintColor
+        
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (contextualAction, view, boolValue) in
+            let selfieToRemove = self.selfies[indexPath.row]
             
-            // Attempt to delete the selfie
+                       
             do {
                 try SelfieStore.shared.delete(selfie: selfieToRemove)
-                
+            
                 //remove it from that array
-                selfies.remove(at: indexPath.row)
-                
+                self.selfies.remove(at: indexPath.row)
+            
                 //Remove the entry form the table view
                 tableView.deleteRows(at: [indexPath], with: .fade)
             } catch {
                 let title = selfieToRemove.title
-                showError(message: "Failed to delete \(title).")
+                self.showError(message: "Failed to delete \(title).")
             }
         }
+        
+        //return a list of contextual actions to put into the table view
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete, share])
+        return swipeActions
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
